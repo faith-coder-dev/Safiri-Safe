@@ -1,0 +1,11 @@
+
+*.db
+*.sqlite3
+
+
+.venv/
+Pipfile.lock
+
+
+__pycache__/
+*.pyc
