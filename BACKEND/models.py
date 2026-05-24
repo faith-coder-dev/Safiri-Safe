@@ -52,6 +52,10 @@ class Trip(db.Model):
     status = db.Column(db.String(20), default='active')  # active, completed, flagged
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     
+    # 🔒 NEW SECURITY COLUMNS FOR ANTI-PIRACY FINGERPRINTING
+    device_fingerprint = db.Column(db.String(256), nullable=True)
+    ip_fingerprint = db.Column(db.String(100), nullable=True)
+    
     # Relationship linking down to Location stream ticks
     locations = db.relationship('Location', backref='trip', cascade="all, delete-orphan", lazy=True)
 
@@ -63,7 +67,7 @@ class Trip(db.Model):
 class Location(db.Model):
     __tablename__ = 'locations'
     
-    id = db.Column(db.BigInteger, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     trip_id = db.Column(db.Integer, db.ForeignKey('trips.id', ondelete="CASCADE"), nullable=False)
     latitude = db.Column(db.Numeric(10, 7), nullable=False)
     longitude = db.Column(db.Numeric(10, 7), nullable=False)
