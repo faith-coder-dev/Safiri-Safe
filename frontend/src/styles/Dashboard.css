@@ -1,0 +1,24 @@
+/* src/styles/Dashboard.css */
+.dashboard-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: sans-serif;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.profile-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.start-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

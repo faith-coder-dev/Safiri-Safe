@@ -211,19 +211,21 @@ def view_live_journey(active_tracking_token):
     if int(current_viewer_id) != owner_id:
         return jsonify({"error": "Access Denied"}), 403
         
-    latest_tick = Location.query.filter_by(trip_id=current_trip.id).order_by(Location.timestamp.desc()).first()
+    # PAGINATION: Fetch the last 50 location ticks for history
+    location_history = Location.query.filter_by(trip_id=current_trip.id)\
+        .order_by(Location.timestamp.desc())\
+        .limit(50).all()
     
-    data = None
-    if latest_tick:
-        data = {
-            "latitude": float(latest_tick.latitude),
-            "longitude": float(latest_tick.longitude),
-            "battery_pct": latest_tick.battery_pct,
-            "last_updated": latest_tick.timestamp.isoformat()
-        }
+    # Format the data (reversed so the path renders oldest -> newest)
+    history_data = [{
+        "latitude": float(tick.latitude),
+        "longitude": float(tick.longitude),
+        "battery_pct": tick.battery_pct,
+        "last_updated": tick.timestamp.isoformat()
+    } for tick in reversed(location_history)]
         
     return jsonify({
         "trip_id": current_trip.id,
         "status": current_trip.status,
-        "latest_location": data
+        "history": history_data
     }), 200

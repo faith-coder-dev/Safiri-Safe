@@ -2,8 +2,12 @@ import os
 from flask import Flask
 from flask_migrate import Migrate
 from flask_cors import CORS
+from dotenv import load_dotenv  # 1. Import load_dotenv
 from models import db
 from flask_jwt_extended import JWTManager
+
+# 2. Load the environment variables from the .env file
+load_dotenv()
 
 from routes import (
     register, 
@@ -21,15 +25,15 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
     
-    BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-    app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(BASE_DIR, 'safirisafe.db')}"
+    # 3. Securely pull configuration from the environment
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+    app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY')
+    
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev_fallback_signature_key_999')
-
-    app.config['JWT_SECRET_KEY'] = 'safiri-safe-super-secret-token-key-2026'
     app.config['JWT_TOKEN_LOCATION'] = ['cookies']
     app.config['JWT_COOKIE_CSRF_PROTECT'] = True
-    app.config['JWT_COOKIE_SECURE'] = False  
+    app.config['JWT_COOKIE_SECURE'] = False  # Set to True when you move to HTTPS
 
     db.init_app(app)
     Migrate(app, db)
