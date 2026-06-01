@@ -5,7 +5,7 @@ import map3D from '../assets/safiri safe images/3d-view-map.jpg';
 
 const Hero = () => {
     return (
-        <section className="hero-section">
+        <section id="home" className="hero-section">
             <div className="hero-content">
                 <h1 className="hero-title">SAFE JOURNEYS. LIVE TRACKING. PEACE OF MIND.</h1>
                 <p className="hero-subtitle">

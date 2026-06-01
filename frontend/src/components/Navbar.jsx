@@ -6,7 +6,7 @@ const Navbar = ({ toggleTheme, theme }) => {
 
     return (
         <nav className="navbar-container dark:bg-gray-900 dark:border-gray-700">
-            <div className="navbar-brand dark:text-white">SafiriSafe</div>
+            <a href="#home" className="navbar-brand dark:text-white">SafiriSafe</a>
             <div className="navbar-links dark:text-gray-300">
                 <a href="#home" className="hover:text-orange-500 dark:hover:text-orange-400 transition">HOME</a>
                 <a href="#how" className="hover:text-orange-500 dark:hover:text-orange-400 transition">HOW IT WORKS</a>
