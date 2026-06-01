@@ -76,7 +76,7 @@
     align-items: center;
     justify-content: center;
     color: #174936;
-    background: rgba(255, 255, 255, 0.42);
+    background: #ffffff;
     border-radius: 8px;
 }
 
@@ -85,7 +85,7 @@
     height: 72px;
     stroke: currentColor;
     fill: none;
-    stroke-width: 4;
+    stroke-width: 2.5;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
@@ -127,7 +127,7 @@
 
 .dark .step-icon {
     color: #8ee0ba;
-    background: rgba(15, 23, 42, 0.36);
+    background: #0f172a;
 }
 
 .dark .step-connector {
