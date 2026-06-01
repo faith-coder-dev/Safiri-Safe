@@ -1,0 +1,78 @@
+/* src/styles/Hero.css */
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 10%;
+    background-image: url('../assets/safiri safe images/worldmap.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+}
+
+.hero-content {
+    max-width: 640px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #1a202c;
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #4a5568;
+    margin-bottom: 2rem;
+}
+
+.hero-cta {
+    background-color: #1a3c2e;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.phone-container {
+    position: relative;
+    width: 300px;
+    height: 560px;
+}
+
+.phone-frame {
+    width: 300px;
+    z-index: 1;
+}
+
+.map-inside-phone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 0;
+    border-radius: 30px;
+}
+
+.dark .overlay-copy,
+.dark .overlay-heading,
+.dark .overlay-link,
+.dark .overlay-map-pod {
+    color: #f8fafc;
+}
+
+.dark .overlay-map-pod {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .overlay-map-pod {
+    background: rgba(255, 255, 255, 0.08);
+}
