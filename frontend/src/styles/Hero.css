@@ -1,18 +1,23 @@
 /* src/styles/Hero.css */
 .hero-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.68fr);
     align-items: center;
-    gap: 2rem;
-    padding: 4rem 10%;
+    gap: clamp(4.25rem, 7.5vw, 8rem);
+    padding: 1rem clamp(2rem, 6vw, 7rem) 0 10%;
     background-image: url('../assets/safiri safe images/worldmap.jpg');
     background-size: cover;
     background-position: center;
-    min-height: 80vh;
+    height: 520px;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-content {
     max-width: 640px;
+    padding-top: 0;
 }
 
 .hero-title {
@@ -20,13 +25,13 @@
     font-weight: 800;
     line-height: 1.1;
     color: #1a202c;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
     color: #4a5568;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .hero-cta {
@@ -38,41 +43,225 @@
     border-radius: 5px;
     cursor: pointer;
     border: none;
+    transition: background-color 0.3s ease;
+}
+
+.hero-cta:hover {
+    background-color: #0f2618;
 }
 
 .phone-container {
     position: relative;
-    width: 300px;
-    height: 560px;
+    width: clamp(285px, 22vw, 330px);
+    aspect-ratio: 736 / 1492;
+    margin-left: clamp(1rem, 2vw, 2.5rem);
+    margin-right: 0;
+    margin-bottom: -118px;
+    justify-self: start;
+    align-self: end;
+    overflow: visible;
+    isolation: isolate;
 }
 
 .phone-frame {
-    width: 300px;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    position: absolute;
+    inset: 0;
+    border: none;
+    object-fit: contain;
+    filter: drop-shadow(0 28px 36px rgba(15, 23, 42, 0.2));
+    pointer-events: none;
+}
+
+.phone-screen {
+    position: absolute;
+    inset: 3.7% 6.8% 2.8%;
     z-index: 1;
+    overflow: hidden;
+    border-radius: 12% / 6%;
+    background: #ddd5c8;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+        inset 0 0 34px rgba(255, 255, 255, 0.32);
+}
+
+.phone-screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 22%),
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 38%);
+    mix-blend-mode: screen;
+}
+
+.map-screen-fill,
+.map-inside-phone {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+}
+
+.map-screen-fill {
+    inset: -7%;
+    width: 114%;
+    height: 114%;
+    object-fit: cover;
+    object-position: 54% center;
+    filter: blur(10px) saturate(0.95);
+    opacity: 0.5;
+    transform: scale(1.04);
 }
 
 .map-inside-phone {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 2%;
+    left: 50%;
+    width: 121%;
+    height: auto;
+    max-width: none;
     object-fit: contain;
-    z-index: 0;
-    border-radius: 30px;
+    transform: translateX(-51%) rotate(0.001deg);
+    z-index: 1;
+    filter: saturate(1.04) contrast(0.98);
 }
 
-.dark .overlay-copy,
-.dark .overlay-heading,
-.dark .overlay-link,
-.dark .overlay-map-pod {
+.map-notification {
+    position: absolute;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    max-width: 86%;
+    padding: 0.55rem 0.7rem;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #173427;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1;
+    box-shadow: 0 10px 24px rgba(27, 35, 54, 0.18);
+    backdrop-filter: blur(8px);
+}
+
+.map-notification::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: inherit;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.map-notification-top {
+    font-size: 0.72rem;
+    white-space: nowrap;
+    top: 7.5%;
+    right: -2%;
+}
+
+.map-notification-bottom {
+    top: 46%;
+    left: 21%;
+}
+
+.map-notification-top::after {
+    top: -5px;
+    right: 18px;
+}
+
+.map-notification-bottom::after {
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.notification-dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: #ff7a1a;
+    box-shadow: 0 0 0 5px rgba(255, 122, 26, 0.16);
+}
+
+/* Dark Mode Styles */
+.dark .hero-title {
     color: #f8fafc;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-.dark .overlay-map-pod {
-    background: rgba(255, 255, 255, 0.08);
+.dark .hero-subtitle {
+    color: #cbd5e1;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-.dark .overlay-map-pod {
-    background: rgba(255, 255, 255, 0.08);
+.dark .hero-section {
+    background-image:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.5) 0%, rgba(30, 41, 59, 0.5) 100%),
+        url('../assets/safiri safe images/worldmap.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.dark .phone-frame {
+    filter: drop-shadow(0 30px 42px rgba(0, 0, 0, 0.48));
+}
+
+.dark .phone-screen {
+    background: #d3cec3;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+        inset 0 0 42px rgba(0, 0, 0, 0.18);
+}
+
+.dark .map-notification {
+    background: rgba(248, 250, 252, 0.88);
+    color: #10291e;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
+}
+
+@media (max-width: 980px) {
+    .hero-section {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: 620px;
+        padding: 3rem 1.5rem 0;
+    }
+
+    .hero-content {
+        max-width: 720px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.45rem, 9vw, 3.5rem);
+    }
+
+    .phone-container {
+        width: min(68vw, 330px);
+        margin: 0 auto -110px;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .hero-section {
+        min-height: 700px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .hero-cta {
+        width: 100%;
+    }
+
+    .phone-container {
+        width: min(82vw, 300px);
+        margin-top: 0.5rem;
+    }
 }

@@ -16,7 +16,16 @@
 }
 
 .theme-toggle {
-    @apply px-4 py-2 rounded text-sm font-bold bg-gray-100 hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-white cursor-pointer;
+    @apply inline-flex items-center justify-center rounded-lg bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 cursor-pointer;
+    width: 3.25rem;
+    height: 3.25rem;
+    border: 1px solid rgba(17, 24, 39, 0.12);
+}
+
+.theme-icon {
+    width: 1.35rem;
+    height: 1.35rem;
+    display: block;
 }
 
 .navbar-button {
