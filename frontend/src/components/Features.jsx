@@ -54,6 +54,7 @@ const Features = () => {
                                     <div className="step-icon">
                                         <StepIcon aria-hidden="true" strokeWidth={2.25} />
                                     </div>
+                                    <span className="step-number">{index + 1}</span>
                                     {index < steps.length - 1 && <span className="step-connector" />}
                                 </div>
                                 <h3>{step.title}</h3>

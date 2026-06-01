@@ -4,7 +4,7 @@
     grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.68fr);
     align-items: center;
     gap: clamp(4.25rem, 7.5vw, 8rem);
-    padding: 1rem clamp(2rem, 6vw, 7rem) 0 10%;
+    padding: 4.2rem clamp(2rem, 6vw, 7rem) 0 10%;
     background-image: url('../assets/safiri safe images/worldmap.jpg');
     background-size: cover;
     background-position: center;
@@ -56,9 +56,10 @@
     aspect-ratio: 736 / 1492;
     margin-left: clamp(1rem, 2vw, 2.5rem);
     margin-right: 0;
+    margin-top: 4rem;
     margin-bottom: -118px;
     justify-self: start;
-    align-self: end;
+    align-self: start;
     overflow: visible;
     isolation: isolate;
 }

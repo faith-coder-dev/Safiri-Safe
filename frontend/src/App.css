@@ -25,6 +25,11 @@
   height: auto;
 }
 
+/* Make room for the fixed navbar */
+.App {
+  padding-top: 7rem;
+}
+
 /* Global Dark Mode Styles */
 html.dark {
   background-color: #0f172a;
