@@ -220,18 +220,18 @@
 }
 
 .benefits-heading h2 {
-    margin: 0 0 0.75rem;
+    margin: 0;
     color: #142033;
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
-    line-height: 1.05;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.6;
 }
 
-.benefits-heading p {
-    margin: 0;
-    color: #46566c;
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    line-height: 1.55;
+.pricing-heading p {
+    margin: 0.75rem 0 0;
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
 
 .benefit-cards {
@@ -445,9 +445,402 @@
     color: #8ee0ba;
 }
 
+.pricing-section {
+    position: relative;
+    padding: 5.5rem clamp(1.5rem, 6vw, 6rem) 6rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f6faf8 100%);
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+}
+
+.feature-heading.pricing-heading,
+.pricing-heading {
+    max-width: 720px;
+    margin: 0 auto 3.25rem;
+    text-align: center;
+}
+
+.pricing-label {
+    margin: 0 0 1rem;
+    display: inline-flex;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-weight: 900;
+    font-size: 0.95rem;
+    color: #d15e1a;
+}
+
+.pricing-heading h2 {
+    margin: 0 0 0.75rem;
+    color: #142033;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.05;
+}
+
+.pricing-heading p {
+    margin: 0.75rem auto 0;
+    color: #475569;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.65;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.pricing-card {
+    position: relative;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 26px 58px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: 520px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+    justify-content: space-between;
+}
+
+.pricing-card:hover {
+    transform: translateY(-6px);
+    background-color: #f7faf7;
+    box-shadow: 0 36px 68px rgba(15, 23, 42, 0.14);
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+.pricing-card.featured {
+    border-color: #fb923c;
+    background: linear-gradient(180deg, #fffbf3 0%, #ffffff 100%);
+    box-shadow: 0 32px 72px rgba(249, 115, 22, 0.14);
+}
+
+.pricing-badge {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1rem;
+    background: #fff4e6;
+    color: #c2410c;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.pricing-card-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pricing-card-icon {
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    background: #edf7ed;
+    color: #174936;
+}
+
+.pricing-card-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.pricing-card h3 {
+    margin: 0;
+    color: #142033;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.plan-description {
+    margin: 0.35rem 0 0;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.pricing-price-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.pricing-price {
+    margin: 0;
+    color: #142033;
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1;
+}
+
+.pricing-period {
+    color: #475569;
+    font-size: 1rem;
+}
+
+.pricing-features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.pricing-feature {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    color: #1f2937;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.feature-list-icon {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #ecfdf5;
+    color: #166534;
+    flex-shrink: 0;
+}
+
+.feature-list-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.pricing-button {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 999px;
+    min-height: 56px;
+    padding: 0 1.25rem;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    margin-top: auto;
+}
+
+.pricing-button.primary,
+.pricing-button.secondary {
+    min-height: 56px;
+}
+
+.pricing-button.primary {
+    background: #f97316;
+    color: #ffffff;
+    box-shadow: 0 18px 32px rgba(249, 115, 22, 0.18);
+}
+
+.pricing-button.secondary {
+    background: #f8fafc;
+    color: #0f172a;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.pricing-button:hover {
+    transform: translateY(-2px);
+}
+
+.pricing-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+.safety-card {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border-radius: 24px;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 26px 58px rgba(15, 23, 42, 0.08);
+    display: grid;
+    gap: 1.5rem;
+}
+
+.safety-card:hover {
+    transform: translateY(-6px);
+    background-color: #f7faf7;
+    box-shadow: 0 36px 68px rgba(15, 23, 42, 0.14);
+}
+
+.safety-card-top {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.safety-icon {
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    border-radius: 18px;
+    background: #ecfdf5;
+    color: #166534;
+    border: 1px solid rgba(22, 101, 52, 0.18);
+}
+
+.safety-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.safety-card h3 {
+    margin: 0;
+    color: #142033;
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.safety-card p {
+    margin: 0;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 680px;
+}
+
+.safety-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: #f97316;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.safety-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+.dark .pricing-card {
+    background: #0f172a;
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 26px 58px rgba(0, 0, 0, 0.4);
+}
+
+.dark .pricing-card.featured {
+    background: linear-gradient(180deg, #111f30 0%, #13263a 100%);
+}
+
+.dark .pricing-badge {
+    background: rgba(248, 113, 30, 0.18);
+    color: #ffffff;
+}
+
+.dark .pricing-card-icon {
+    background: rgba(142, 224, 186, 0.15);
+    color: #8ee0ba;
+}
+
+.dark .pricing-card h3,
+.dark .pricing-price,
+.dark .pricing-badge,
+.dark .safety-card h3 {
+    color: #f8fafc;
+}
+
+.dark .pricing-period,
+.dark .pricing-card .plan-description,
+.dark .pricing-feature {
+    color: #cbd5e1;
+}
+
+.dark .pricing-button.secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f8fafc;
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.dark .safety-card {
+    background: #0f172a;
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 26px 58px rgba(0, 0, 0, 0.55);
+}
+
+.dark .safety-icon {
+    background: rgba(255, 255, 255, 0.08);
+    color: #f97316;
+}
+
 @media (max-width: 1120px) {
     .benefit-cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .benefits-section {
+        padding: 3.5rem 1.25rem 4rem;
+    }
+
+    .benefits-heading {
+        text-align: left;
+        margin-bottom: 2.25rem;
+    }
+
+    .benefit-cards {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .benefit-card {
+        padding: 1.5rem;
+        min-height: auto;
+    }
+
+    .pricing-section {
+        padding: 3.5rem 1.25rem 4rem;
+    }
+
+    .pricing-card {
+        min-height: auto;
+        padding: 1.5rem;
+    }
+
+    .pricing-card-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pricing-price-group {
+        gap: 0.25rem;
+    }
+
+    .safety-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 520px) {
+    .pricing-button {
+        font-size: 0.95rem;
     }
 }
 

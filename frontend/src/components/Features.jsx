@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bell, Car, Clock3, Crown, IdCard, Map, MapPinned, Monitor, Radar, Share2, ShieldCheck, User, Users, ToggleRight } from 'lucide-react';
+import { ArrowRight, Bell, Car, ChartColumn, CircleCheckBig, Clock3, Crown, Headset, History, IdCard, Map, MapPinned, Monitor, Radar, Rocket, Send, Share2, ShieldCheck, Star, User, UserRound, Users, UsersRound, ToggleRight } from 'lucide-react';
 import '../styles/Features.css';
 
 const steps = [
@@ -91,6 +91,43 @@ const features = [
     },
 ];
 
+const pricingPlans = [
+    {
+        name: 'Free',
+        icon: Send,
+        price: 'KES 0',
+        period: 'individual',
+        description: 'Perfect for getting started',
+        buttonText: 'Get Started For Free',
+        buttonIcon: Rocket,
+        featured: false,
+        features: [
+            { label: '1 Profile', icon: UserRound },
+            { label: 'Live Tracking', icon: MapPinned },
+            { label: 'WhatsApp Sharing', icon: Share2 },
+            { label: 'Basic Journey History', icon: History },
+        ],
+    },
+    {
+        name: 'Premium',
+        icon: Crown,
+        price: 'KES 100',
+        period: '/profile',
+        description: 'For families who want more',
+        buttonText: 'View Premium Features',
+        buttonIcon: ArrowRight,
+        featured: true,
+        features: [
+            { label: 'Up to 3 Profiles', icon: Users },
+            { label: 'Family Sharing', icon: UsersRound },
+            { label: 'Journey Insights', icon: ChartColumn },
+            { label: 'Priority Support', icon: Headset },
+            { label: 'Advanced Journey History', icon: History },
+            { label: 'Premium Features', icon: Crown },
+        ],
+    },
+];
+
 const Features = () => {
     return (
         <>
@@ -168,6 +205,85 @@ const Features = () => {
                             );
                         })}
                     </div>
+                </div>
+            </section>
+
+            <section className="feature-section pricing-section" id="pricing">
+                <div className="how-inner">
+                    <div className="feature-heading pricing-heading">
+                        <p className="pricing-label">Pricing</p>
+                        <h2>Simple Plans. Complete Peace of Mind.</h2>
+                        <p>Choose the plan that fits your journey needs.</p>
+                    </div>
+
+                    <div className="pricing-grid">
+                        {pricingPlans.map((plan) => {
+                            const PlanIcon = plan.icon;
+                            const ButtonIcon = plan.buttonIcon;
+
+                            return (
+                                <article className={`pricing-card ${plan.featured ? 'featured' : ''}`} key={plan.name}>
+                                    {plan.featured && (
+                                        <div className="pricing-badge">
+                                            <Star aria-hidden="true" strokeWidth={2.25} />
+                                            Most Popular
+                                        </div>
+                                    )}
+
+                                    <div className="pricing-card-head">
+                                        <div className="pricing-card-icon">
+                                            <PlanIcon aria-hidden="true" strokeWidth={2.25} />
+                                        </div>
+                                        <div>
+                                            <h3>{plan.name}</h3>
+                                            <p className="plan-description">{plan.description}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="pricing-price-group">
+                                        <span className="pricing-price">{plan.price}</span>
+                                        <span className="pricing-period">{plan.period}</span>
+                                    </div>
+
+                                    <ul className="pricing-features">
+                                        {plan.features.map((feature) => {
+                                            const FeatureIcon = feature.icon;
+
+                                            return (
+                                                <li className="pricing-feature" key={feature.label}>
+                                                    <span className="feature-list-icon">
+                                                        <CircleCheckBig aria-hidden="true" strokeWidth={2.25} />
+                                                    </span>
+                                                    <span>{feature.label}</span>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+
+                                    <button className={`pricing-button ${plan.featured ? 'primary' : 'secondary'}`}>
+                                        {plan.buttonText}
+                                        <ButtonIcon aria-hidden="true" strokeWidth={2.25} />
+                                    </button>
+                                </article>
+                            );
+                        })}
+                    </div>
+
+                    <article className="safety-card">
+                        <div className="safety-card-top">
+                            <div className="safety-icon">
+                                <ShieldCheck aria-hidden="true" strokeWidth={2.25} />
+                            </div>
+                            <div>
+                                <h3>Your safety. Our priority.</h3>
+                                <p>SafiriSafe is built with privacy and security at its core. You stay in control of your data and who can see your journey.</p>
+                            </div>
+                        </div>
+                        <a href="#security" className="safety-link">
+                            Get started
+                            <ArrowRight aria-hidden="true" strokeWidth={2.25} />
+                        </a>
+                    </article>
                 </div>
             </section>
         </>
